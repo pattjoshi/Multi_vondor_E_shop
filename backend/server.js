@@ -1,13 +1,49 @@
 const express = require("express");
+const ErrorHandler = require("./middleware/error");
 const connectDatabase = require("./db/Database");
-
 const app = express();
 
-// Handling Uncaught Exceptions
-process.on("uncaughtException", (err) => {
-  console.log(`Error: ${err.message}`);
-  console.log(`shutting down the server for handling UNCAUGHT EXCEPTION! 💥`);
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const path = require("path");
+
+// config
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({
+    path: "config/.env",
+  });
+}
+// connect db
+connectDatabase();
+
+// create server
+const server = app.listen(process.env.PORT, () => {
+  console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
+
+// middlewares
+app.use(express.json());
+app.use(cookieParser());
+// Enable CORS for all routes
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
+app.use("/", express.static("uploads"));
+
+app.get("/test", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+
+// why bodyparser?
+// bodyparser is used to parse the data from the body of the request to the server (POST, PUT, DELETE, etc.)
 
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -16,12 +52,23 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   });
 }
 
-// connect db
-connectDatabase();
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
-// create server
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server is running on http://localhost:${process.env.PORT}`);
+// routes
+const user = require("./controller/user");
+
+// end points
+app.use("/api/v2/user", user);
+
+// it'for errhendel
+app.use(ErrorHandler);
+
+// Handling Uncaught Exceptions
+process.on("uncaughtException", (err) => {
+  console.log(`Error: ${err.message}`);
+  console.log(`shutting down the server for handling UNCAUGHT EXCEPTION! 💥`);
 });
 
 // unhandled promise rejection

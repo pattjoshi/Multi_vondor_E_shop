@@ -3,11 +3,12 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
-
+import axios from "axios";
+import { server } from "../../server";
+import { toast } from "react-toastify";
 
 
 const Signup = () => {
-    const navigate = useNavigate()
 
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -15,15 +16,39 @@ const Signup = () => {
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
 
-    const handleSubmit = () => {
-        console.log("fff");
-    }
-
+    // const navigate = useNavigate()
 
     // fule upload
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
         setAvatar(file);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const config = { headers: { "Content-Type": "multipart/form-data" } };
+        // meaning of uper line is that we are creating a new object with the name of config and the value of config is {headers:{'Content-Type':'multipart/form-data'}}  
+
+        const newForm = new FormData();
+        // meaning of uper line is that we are creating a new form data object and we are sending it to the backend with the name of newForm and the value of newForm is new FormData()
+        newForm.append("file", avatar);
+        // meanin of newForm.append("file",avatar) is that we are sending a file to the backend with the name of file and the value of the file is avatar
+        newForm.append("name", name);
+        newForm.append("email", email);
+        newForm.append("password", password)
+
+
+        axios
+            .post(`${server}/user/create-user`, newForm, config)
+            .then((res) => {
+                toast.success(res.data.message);
+                setName("");
+                setEmail("");
+                setPassword("");
+                setAvatar();
+            }).catch((error) => {
+                toast.error(error.response.data.message);
+            })
     }
 
     return (
@@ -35,7 +60,7 @@ const Signup = () => {
             </div>
             <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
                 <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
-                    <form className='space-y-6'  >
+                    <form className='space-y-6' onSubmit={handleSubmit} >
                         {/* Full Name start */}
                         <div>
                             <label htmlFor="email"
