@@ -14,7 +14,7 @@ import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { backend_url } from '../../server';
-
+import Cart from "../cart/Cart";
 
 
 const Header = ({ activeHeading }) => {
@@ -183,6 +183,8 @@ const Header = ({ activeHeading }) => {
                             </div>
                         </div>
 
+
+                        {/* avatar */}
                         <div className={`${styles.noramlFlex}`}>
                             <div
                                 className="relative cursor-pointer mr-[15px]"
@@ -205,13 +207,14 @@ const Header = ({ activeHeading }) => {
                                         </Link>
                                     )
                                 }
-
-
                             </div>
                         </div>
+                        {/* Avatar end */}
+                        {/* card  popup start */}
+                        {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
+
 
                     </div>
-
                 </div>
 
             </div>
