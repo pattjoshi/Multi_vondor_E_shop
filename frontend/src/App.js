@@ -11,6 +11,8 @@ import {
   BestSellingPage,
   EventsPage,
   FAQPage,
+  ProductDetailsPage,
+  ProfilePage,
 } from "./routes/Routes";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -18,11 +20,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { loadUser } from "./redux/actions/user";
 import { useSelector } from "react-redux";
-// import { server } from "./server";
-// import axios from "axios";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
-  const { loading } = useSelector((state) => state.user);
+  const { loading, isAuthenticated } = useSelector((state) => state.user);
 
   useEffect(() => {
     Store.dispatch(loadUser());
@@ -41,9 +42,18 @@ const App = () => {
               element={<ActivationPage />}
             />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/product/:name" element={<ProductDetailsPage />} />
             <Route path="/best-selling" element={<BestSellingPage />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
           <ToastContainer
             position="bottom-center"
