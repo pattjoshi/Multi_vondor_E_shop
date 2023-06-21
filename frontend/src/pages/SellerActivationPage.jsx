@@ -4,8 +4,7 @@ import { server } from "../server";
 import axios from 'axios';
 
 
-
-const ActivationPage = () => {
+const SellerActivationPage = () => {
     const { activation_token } = useParams();
     const [error, setError] = useState(false);
 
@@ -14,10 +13,10 @@ const ActivationPage = () => {
             const activationEmail = async () => {
                 try {
                     const res = await axios
-                        .post(`${server}/user/activation`, {
+                        .post(`${server}/shop/activation`, {
                             activation_token
                         })
-                    console.log(res.data.message);
+
                 } catch (err) {
                     console.log(err.response.data.message);
                     setError(true);
@@ -49,4 +48,8 @@ const ActivationPage = () => {
     )
 }
 
-export default ActivationPage
+export default SellerActivationPage
+
+
+
+
