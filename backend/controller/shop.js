@@ -12,13 +12,12 @@ const ErrorHandler = require("../utils/ErrorHandler");
 
 const sendShopToken = require("../utils/shopToken");
 
-// Create a shop
-
+// create shop
 router.post("/create-shop", upload.single("file"), async (req, res, next) => {
   try {
     const { email } = req.body;
-    // Find in database
     const sellerEmail = await Shop.findOne({ email });
+
     if (sellerEmail) {
       const filename = req.file.filename;
       const filePath = `uploads/${filename}`;
@@ -48,7 +47,6 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
 
     const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
 
-    // send email to seller
     try {
       await sendMail({
         email: seller.email,
@@ -74,7 +72,7 @@ const createActivationToken = (seller) => {
   });
 };
 
-// Active seller
+// activate user
 router.post(
   "/activation",
   catchAsyncErrors(async (req, res, next) => {
@@ -115,7 +113,7 @@ router.post(
   })
 );
 
-// Login shop
+// login shop
 router.post(
   "/login-shop",
   catchAsyncErrors(async (req, res, next) => {
@@ -169,6 +167,39 @@ router.get(
   })
 );
 
-module.exports = router;
+// log out from shop
+router.get(
+  "/logout",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      res.cookie("seller_token", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+      });
+      res.status(201).json({
+        success: true,
+        message: "Log out successful!",
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
 
-// pt close
+// get shop info
+router.get(
+  "/get-shop-info/:id",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const shop = await Shop.findById(req.params.id);
+      res.status(201).json({
+        success: true,
+        shop,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+module.exports = router;
