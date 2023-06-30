@@ -37,7 +37,6 @@ const ShopCreate = () => {
         newForm.append("address", address);
         newForm.append("phoneNumber", phoneNumber);
 
-
         axios
             .post(`${server}/shop/create-shop`, newForm, config)
             .then((res) => {
@@ -55,6 +54,9 @@ const ShopCreate = () => {
             .catch((error) => {
                 toast.error(error.response.data.message);
             });
+        navigate("/shop-login")
+        window.location.reload();
+
 
 
     }

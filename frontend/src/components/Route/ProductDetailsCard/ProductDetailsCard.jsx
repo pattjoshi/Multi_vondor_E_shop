@@ -6,6 +6,8 @@ import {
     AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
+import { Link } from "react-router-dom";
+import { backend_url } from "../../../server";
 import styles from "../../../styles/styles";
 
 const ProductDetailsCard = ({ setOpen, data }) => {
@@ -42,19 +44,24 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
                                 <div className="block w-full 800px:flex">
                                     <div className='w-full 800px:w-[50%]'>
-                                        <img src={data.image_Url[0].url} alt="img" />
+                                        <img src={`${backend_url}${data.images && data.images[0]}`} alt="img" />
                                         <div className='flex' >
-                                            <img src={data.shop.shop_avatar.url} alt=""
-                                                className='w-[50px] h-[50px] rounded-full mr-2'
-                                            />
-                                            <div>
-                                                <h3 className={`${styles.shop_name}`}>
-                                                    {data.shop.name}
-                                                </h3>
-                                                <h5 className="pb-3 text-[15px]">
-                                                    ({data.shop.ratings}) Ratings
-                                                </h5>
-                                            </div>
+                                            <Link to={`/shop/preview/${data.shop._id}`} className="flex">
+
+                                                <img
+                                                    src={`${backend_url}${data?.shop?.avatar}`}
+                                                    alt=""
+                                                    className='w-[50px] h-[50px] rounded-full mr-2'
+                                                />
+                                                <div>
+                                                    <h3 className={`${styles.shop_name}`}>
+                                                        {data.shop.name}
+                                                    </h3>
+                                                    <h5 className="pb-3 text-[15px]">
+                                                        (4.5) Ratings
+                                                    </h5>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div
                                             className={`${styles.button} bg-[#000] mt-4 rounded-[4px] h-11`}
@@ -79,10 +86,10 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
                                         <div className='flex  pt-3 '>
                                             <h4 className={`${styles.productDiscountPrice}`}>
-                                                {data.discount_price}$
+                                                {data.discountPrice}$
                                             </h4>
                                             <h3 className={`${styles.price}`}>
-                                                {data.price ? data.price + "$" : null}
+                                                {data.originalPrice ? data.originalPrice + "$" : null}
                                             </h3>
                                         </div>
 

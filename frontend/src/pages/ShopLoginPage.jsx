@@ -5,14 +5,13 @@ import { useSelector } from 'react-redux';
 
 const ShopLoginPage = () => {
     const navigate = useNavigate();
-    const { isSeller, seller } = useSelector((state) => state.seller);
+    const { isSeller, isLoading } = useSelector((state) => state.seller);
     // if user is login then redirect to home page
     useEffect(() => {
         if (isSeller === true) {
-            navigate(`/shop/${seller._id}`);
+            navigate(`/dashboard`);
         }
-
-    })
+    }, [isLoading, isSeller])
     return (
         <div>
             <ShopLogin />
