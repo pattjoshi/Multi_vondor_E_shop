@@ -19,6 +19,10 @@ import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from 'react-icons/rx';
 
 const Header = ({ activeHeading }) => {
+
+    const { isSeller } = useSelector((state) => state.seller);
+    const { cart } = useSelector((state) => state.cart);
+    const { wishlist } = useSelector((state) => state.wishlist);
     const { isAuthenticated, user } = useSelector((state) => state.user);
     const { allProducts } = useSelector((state) => state.products);
     const [searchTerm, setSearchTerm] = useState("");
@@ -85,9 +89,8 @@ const Header = ({ activeHeading }) => {
                                         searchData && searchData.map((i, index) => {
                                             const d = i.name;
 
-                                            const Product_name = d.replace(/\s+/g, "-");
                                             return (
-                                                <Link to={`/product/${Product_name}`}>
+                                                <Link to={`/product/${i._id}`}>
                                                     <div className="w-full flex items-start-py-3">
                                                         <img src={`${backend_url}${i.images[0]}`} alt="img"
                                                             className="w-[40px] h-[40px] mr-[10px]"
@@ -105,11 +108,11 @@ const Header = ({ activeHeading }) => {
 
                     {/* Become a Seller */}
                     <div className={`${styles.button}`}>
-                        <Link to="/shop-create">
-                            <h1 className='text-[#fff] flex items-center'>
-                                Become Seller <IoIosArrowForward className='ml-1' />
-                            </h1>
 
+                        <Link to={`${isSeller ? '/dashboard' : '/shop-create'}`}>
+                            <h1 className='text-[#fff] flex items-center'>
+                                {isSeller ? "Go Dashboard" : "Become Seller"}  <IoIosArrowForward className="ml-1" />
+                            </h1>
                         </Link>
                     </div>
                     {/* Become a Seller end */}
@@ -161,7 +164,7 @@ const Header = ({ activeHeading }) => {
                             >
                                 <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
                                 <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                                    0
+                                    {wishlist && wishlist.length}
                                 </span>
 
 
@@ -180,7 +183,7 @@ const Header = ({ activeHeading }) => {
                                     color="rgb(255 255 255 / 83%)"
                                 />
                                 <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                                    1
+                                    {cart && cart.length}
                                 </span>
                             </div>
                         </div>
@@ -256,7 +259,7 @@ const Header = ({ activeHeading }) => {
                         >
                             <AiOutlineShoppingCart size={30} />
                             <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
-                                1
+                                {cart && cart.length}
                             </span>
 
                         </div>
@@ -326,9 +329,9 @@ const Header = ({ activeHeading }) => {
                             </div>
                             <Navbar active={activeHeading} />
                             <div className={`${styles.button} ml-4 !rounded-[4px]`}>
-                                <Link to="/shop-create">
+                                <Link to={`${isSeller ? '/dashboard' : '/shop-create'}`}>
                                     <h1 className="text-[#fff] flex items-center">
-                                        Become Seller <IoIosArrowForward className="ml-1" />
+                                        {isSeller ? "Go Dashboard" : "Become Seller"}  <IoIosArrowForward className="ml-1" />
                                     </h1>
                                 </Link>
                             </div>

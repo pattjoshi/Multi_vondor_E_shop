@@ -153,7 +153,7 @@ const AllCoupons = () => {
                                 </h5>
                                 {/* create coupoun code */}
                                 <form onSubmit={handleSubmit} aria-required={true}>
-                                    <br />
+
                                     <div>
                                         <label className="pb-2">
                                             Name <span className="text-red-500">*</span>
@@ -168,7 +168,7 @@ const AllCoupons = () => {
                                             placeholder="Enter your coupon code name..."
                                         />
                                     </div>
-                                    <br />
+
                                     <div>
                                         <label className="pb-2">
                                             Discount Percentenge{" "}
@@ -184,7 +184,7 @@ const AllCoupons = () => {
                                             placeholder="Enter your coupon code value..."
                                         />
                                     </div>
-                                    <br />
+
                                     <div>
                                         <label className="pb-2">Min Amount</label>
                                         <input
@@ -196,7 +196,7 @@ const AllCoupons = () => {
                                             placeholder="Enter your coupon code min amount..."
                                         />
                                     </div>
-                                    <br />
+
                                     <div>
                                         <label className="pb-2">Max Amount</label>
                                         <input
@@ -208,7 +208,7 @@ const AllCoupons = () => {
                                             placeholder="Enter your coupon code max amount..."
                                         />
                                     </div>
-                                    <br />
+
                                     <div>
                                         <label className="pb-2">Selected Product</label>
                                         <select
@@ -227,7 +227,7 @@ const AllCoupons = () => {
                                                 ))}
                                         </select>
                                     </div>
-                                    <br />
+
                                     <div>
                                         <input
                                             type="submit"

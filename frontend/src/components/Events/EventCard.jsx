@@ -2,14 +2,35 @@ import React from 'react'
 import { backend_url } from "../../server";
 import styles from "../../styles/styles";
 import CountDown from "./CountDown";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { addTocart } from "../../redux/actions/cart";
+import { toast } from "react-toastify";
+
 
 const EventCard = ({ active, data }) => {
+
+    const { cart } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const addToCartHandler = (data) => {
+        const isItemExists = cart && cart.find((i) => i._id === data._id);
+        if (isItemExists) {
+            toast.error("Item alredy in cart!")
+        } else {
+            if (data.stock < 1) {
+                toast.error("Product stock limited!")
+            } else {
+                const cartData = { ...data, qty: 1 };
+                dispatch(addTocart(cartData));
+                toast.success("item added to cart successfully!")
+            }
+        }
+    }
 
     return (
         <div className={`w-full block bg-white rounded-lg ${active ? "unset" : "mb-12"} lg:flex p-2`}>
             <div className="w-full lg:-w[50%] m-auto">
-                {/* <img src="https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg" alt="img event cart" /> */}
-
                 <img
                     src={`${backend_url}${data.images[0]}`}
                     alt="" />
@@ -37,6 +58,19 @@ const EventCard = ({ active, data }) => {
                     </span>
                 </div>
                 <CountDown data={data} />
+                <br />
+                <div className='flex items-center'>
+                    <Link to={`/product/${data._id}?isEvent=true`}>
+                        <div className={`${styles.button} text-[#fff]`}>See Details</div>
+
+                    </Link>
+                    <div className={`${styles.button} text-[#fff] ml-5`}
+                        onClick={() => addToCartHandler(data)}
+                    >
+                        Add to cart
+                    </div>
+
+                </div>
             </div>
 
         </div>
