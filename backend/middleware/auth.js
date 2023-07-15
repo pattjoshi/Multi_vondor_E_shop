@@ -29,6 +29,17 @@ exports.isSeller = catchAsyncErrors(async (req, res, next) => {
   next();
 });
 
+exports.isAdmin = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new ErrorHandler(`${req.user.role} can not access this resources!`)
+      );
+    }
+    next();
+  };
+};
+
 // Why this auth?
 // This auth is for the user to login and get the token
 // This token will be used to access the protected routes like create, update, delete, etc. (autharization)

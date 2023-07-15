@@ -66,6 +66,8 @@ const payment = require("./controller/payment");
 const order = require("./controller/order");
 const message = require("./controller/message");
 const conversation = require("./controller/conversation");
+const withdraw = require("./controller/withdraw");
+app.use("/api/v2/withdraw", withdraw);
 
 // end points
 app.use("/api/v2/user", user);

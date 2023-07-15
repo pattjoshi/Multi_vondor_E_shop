@@ -17,8 +17,6 @@ router.post(
       //   group cart items by shopId
       const shopItemsMap = new Map();
 
-      /* The `for (const item of cart)` loop is iterating over each item in the `cart` array. It
-       allows you to perform some operations on each item individually. */
       for (const item of cart) {
         const shopId = item.shopId;
         if (!shopItemsMap.has(shopId)) {
@@ -56,7 +54,6 @@ router.get(
   "/get-all-orders/:userId",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      /* find all orders that belong to a specific user. */
       const orders = await Order.find({ "user._id": req.params.userId }).sort({
         createdAt: -1,
       });
@@ -103,19 +100,19 @@ router.put(
       if (!order) {
         return next(new ErrorHandler("Order not found with this id", 400));
       }
-
-      // Sheller updated the product
       if (req.body.status === "Transferred to delivery partner") {
         order.cart.forEach(async (o) => {
           await updateOrder(o._id, o.qty);
         });
       }
 
-      order.status = req.body.status; // Update order status
+      order.status = req.body.status;
 
       if (req.body.status === "Delivered") {
         order.deliveredAt = Date.now();
         order.paymentInfo.status = "Succeeded";
+        const serviceCharge = order.totalPrice * 0.1;
+        await updateSellerInfo(order.totalPrice - serviceCharge);
       }
 
       await order.save({ validateBeforeSave: false });
@@ -131,9 +128,15 @@ router.put(
         product.stock -= qty;
         product.sold_out += qty;
 
-        /* The line `await product.save({ validateBeforeSave: false });` is saving the updated product
-      data to the database without performing any validation checks before saving.  */
         await product.save({ validateBeforeSave: false });
+      }
+
+      async function updateSellerInfo(amount) {
+        const seller = await Shop.findById(req.seller.id);
+
+        seller.availableBalance = amount;
+
+        await seller.save();
       }
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
@@ -202,6 +205,27 @@ router.put(
 
         await product.save({ validateBeforeSave: false });
       }
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+// all orders --- for admin
+router.get(
+  "/admin-all-orders",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const orders = await Order.find().sort({
+        deliveredAt: -1,
+        createdAt: -1,
+      });
+      res.status(201).json({
+        success: true,
+        orders,
+      });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }

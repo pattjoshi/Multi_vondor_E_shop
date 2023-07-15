@@ -1,28 +1,20 @@
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
-import React, { useEffect } from "react";
-import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { deleteEvent, getAllEventsShop } from "../../redux/actions/event";
-import { getAllProductsShop } from "../../redux/actions/product";
-import { deleteProduct } from "../../redux/actions/product";
-import Loader from "../Layout/Loader";
+import { server } from "../../server";
 
 const AllEvents = () => {
-  const { events, isLoading } = useSelector((state) => state.events);
-  const { seller } = useSelector((state) => state.seller);
-
-  const dispatch = useDispatch();
-
+  const [events, setEvents] = useState([]);
   useEffect(() => {
-    dispatch(getAllEventsShop(seller._id));
-  }, [dispatch]);
-
-  const handleDelete = (id) => {
-    dispatch(deleteEvent(id));
-    window.location.reload();
-  };
+    axios
+      .get(`${server}/event/admin-all-events`, { withCredentials: true })
+      .then((res) => {
+        setEvents(res.data.events);
+      });
+  }, []);
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -72,23 +64,6 @@ const AllEvents = () => {
         );
       },
     },
-    {
-      field: "Delete",
-      flex: 0.8,
-      minWidth: 120,
-      headerName: "",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Button onClick={() => handleDelete(params.id)}>
-              <AiOutlineDelete size={20} />
-            </Button>
-          </>
-        );
-      },
-    },
   ];
 
   const row = [];
@@ -105,21 +80,15 @@ const AllEvents = () => {
     });
 
   return (
-    <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
-          <DataGrid
-            rows={row}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            autoHeight
-          />
-        </div>
-      )}
-    </>
+    <div className="w-full mx-8 pt-1 mt-10 bg-white">
+      <DataGrid
+        rows={row}
+        columns={columns}
+        pageSize={10}
+        disableSelectionOnClick
+        autoHeight
+      />
+    </div>
   );
 };
 
