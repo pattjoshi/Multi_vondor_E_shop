@@ -27,10 +27,15 @@ const UserOrderDetails = () => {
 
   const data = orders && orders.find((item) => item._id === id);
 
-  const reviewHandler = async (e) => {
-    await axios
-      .put(
-        `${server}/product/create-new-review`,
+  const reviewHandler = async (type) => {
+    try {
+      const endpoint =
+        type === "product"
+          ? "/product/create-new-review"
+          : "/event/create-new-review-event";
+
+      const res = await axios.put(
+        `${server}${endpoint}`,
         {
           user,
           rating,
@@ -39,17 +44,24 @@ const UserOrderDetails = () => {
           orderId: id,
         },
         { withCredentials: true }
-      )
-      .then((res) => {
-        toast.success(res.data.message);
-        dispatch(getAllOrdersOfUser(user._id));
-        setComment("");
-        setRating(null);
-        setOpen(false);
-      })
-      .catch((error) => {
-        toast.error(error);
-      });
+      );
+
+      toast.success(res.data.message);
+      dispatch(getAllOrdersOfUser(user._id));
+      setComment("");
+      setRating(null);
+      setOpen(false);
+    } catch (error) {
+      console.error(error); // Log the error to the console for debugging
+      toast.error("An error occurred. Please try again."); // Display a generic error message
+    }
+  };
+
+  const combinedHandler = async () => {
+    if (rating > 1) {
+      await reviewHandler("product");
+      await reviewHandler("event");
+    }
   };
 
   // Refund
@@ -194,7 +206,7 @@ const UserOrderDetails = () => {
             </div>
             <div
               className={`${styles.button} text-white text-[20px] ml-3`}
-              onClick={rating > 1 ? reviewHandler : null}
+              onClick={rating > 1 ? combinedHandler : null}
             >
               Submit
             </div>

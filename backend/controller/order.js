@@ -89,7 +89,7 @@ router.get(
   })
 );
 
-// update order status for seller
+// update order status for seller    ---------------(product)
 router.put(
   "/update-order-status/:id",
   isSeller,

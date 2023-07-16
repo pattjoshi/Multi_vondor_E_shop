@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { backend_url } from "../../server";
 import styles from "../../styles/styles";
 import CountDown from "./CountDown";
@@ -10,6 +10,10 @@ import { toast } from "react-toastify";
 const EventCard = ({ active, data }) => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const addToCartHandler = (data) => {
     const isItemExists = cart && cart.find((i) => i._id === data._id);
@@ -50,7 +54,7 @@ const EventCard = ({ active, data }) => {
             </h5>
           </div>
           <span className="pr-3 font-[400] text-[17px] text-[#44a55e]">
-            120 sold
+            {data.sold_out} sold
           </span>
         </div>
         <CountDown data={data} />
