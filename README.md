@@ -55,7 +55,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - All Event's 🎊
   - FAQ 🙋
 - Filters for Sorting Posts 🗂️
-  - Sort posts by Clothes, Shows, gifts, etc..
+  - Sort posts by Clothes, Shows, gifts, etc...
 - User Search Bar 🔍
   - Search for product 🔎
   - Click on a user to go to the Product details page 👤
@@ -80,7 +80,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - Add to wish list ❤️
   - Add to Cart  🛒
 - User Profile Page 👤
-  - Edit your profile details - profile photo, name, email,phone number ✏️
+  - Edit your profile details - profile photo, name, email, phone number ✏️
   - change Password 🔐
   - View All Order 👨🏾‍💻.
   - After Delivery of the product user can Refund the product. 🔙
@@ -102,11 +102,11 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - Alerts in the app to notify users about success/failure operations
 - Seller Authentication Pages 🚪
   - Seller Signup 📝
-    - shop name,Phone Number,Email address,Address,Zip Code,Password ✍
+    - shop name, Phone Number, Email address, Address,Zip Code, Password ✍
     - upload a Profile image 📷
     - email verification ✅
   -  Seller Login 🔐
-- Seller Deshoard 👨🏻‍🔧
+- Seller Dashboard 👨🏻‍🔧
   - Overview of a Product and Latest Orders 🖇️
   - Account Balance (with 10% service charge) 💰
 - All Orders ⚖
@@ -114,14 +114,14 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - Create Products  ✔️
      - name*
      - Description *
-     - Category *  like :- Computer and Laptops,Costetics and body care,Accesories,Cloths,Shoes,Gifts,Pet Care,Mobile and Tablets,Music and Gaming,Other 🧩
+     - Category *  like:- Computer and Laptops, Cosmetics and body care, Accessories, clothes,Shoes, Gifts, Pet Care, Mobile and Tablets, Music and Gaming, Other 🧩
   - All product 💻
      - Seller can delete Product ❌
-    - View all Product 📦
- - Create a Event  💥🎉
+    - View all Products 📦
+ - Create an Event  💥🎉
     - name* 📇
    - Description *
-   - Category *  like :- Computer and Laptops,Costetics and body care,Accesories,Cloths,Shoes,Gifts,Pet Care,Mobile and Tablets,Music and Gaming,Other
+   - Category *  like:- Computer and Laptops,Cosmetics and body care,Accessories,Cloths, Shoes,Gifts, Pet Care, Mobile and Tablets, Music and Gaming, Other
    - Tags
    - Original Price
    - Price (With Discount) *
@@ -134,7 +134,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - Delete Event  ⛔
 - Withdraw Money 📥
   - Add Bank Details 🏛️
-  - Not withdraw highest amount of Balance 💱
+  - Not withdraw the highest amount of Balance 💱
   - Sand mail to sell with amount 📩
   - Delete Bank Details 🪧
 - Shop Inbox 📞
@@ -144,42 +144,32 @@ The MERN Marketplace application will allow users to become sellers, who can man
 - Discount Codes 🎟️
   - Create coupon code 🖱
   - Delete coupon code 🛑
-  - applay all Product of shop  🤩
-  - Can applay specific product 1️⃣☝️
+  - apply all Products of the shop  🤩
+  - Can apply the specific product 1️⃣☝️
 - Refunds 🔙
-  - Seller can update Satus of Product 🔄
+  - Seller can update the Status of the Product 🔄
 - Settings ⚛
-  - update Images,Shop Address,Shop Phone Number,Shop Zip Code ⛓
+  - update Images, Shop Address, Shop Phone Number, Shop Zip Code ⛓
   - Add Shop description 📖
 - Shop Desboard 🎰
    - Shop Products 🌃
    - Running Events 🎪
    - Shop Reviews ⭐
    - Log out  ↪️
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
+- Admin Authentication Pages (normal user in DB roll in Admin) 🚪
+   - Admin Signup 📝
+   - Admin Login 🔐
+  - Overview 👔
+        - Total Earning 🤑
+        - All Sellers 👨‍🔧
+        - All Orders 🛍️
+        - Latest Orders 🔢
+    - Show All Orders of Seller's 🛍️
+    - Show All sellers and Delete ⛔
+    - Show All users and Delete 👨‍👩‍👦‍👦 ⛔
+    - All Products in DB. 👨🏻‍💻
+    - All Events of Seller 📢
+    - verify  Seller Withdraw request and Sand mail to update's 📧
 
 ## 📹 Video Demo
 
