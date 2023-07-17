@@ -90,6 +90,8 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - **Only Admin show Admin Dashboard** 👑
   - Logout 🔚
   - Create a Review After Delivery Product 🚛
+  - After the Buy product is Sold out is increased. and Stock decrease in DB.
+
 - Message ✉️
   - Sand Image 🖼️
   - Show active or not 🟢
@@ -121,7 +123,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
  - Create an Event  💥🎉
     - name* 📇
    - Description *
-   - Category *  like:- Computer and Laptops,Cosmetics and body care,Accessories,Cloths, Shoes,Gifts, Pet Care, Mobile and Tablets, Music and Gaming, Other
+   - Category *  like:- Computer and Laptops, Cosmetics and body care,Accessories, Clothes, Shoes,Gifts, Pet Care, Mobile and Tablets, Music and Gaming, Other
    - Tags
    - Original Price
    - Price (With Discount) *
@@ -164,12 +166,13 @@ The MERN Marketplace application will allow users to become sellers, who can man
         - All Sellers 👨‍🔧
         - All Orders 🛍️
         - Latest Orders 🔢
-    - Show All Orders of Seller's 🛍️
-    - Show All sellers and Delete ⛔
-    - Show All users and Delete 👨‍👩‍👦‍👦 ⛔
-    - All Products in DB. 👨🏻‍💻
-    - All Events of Seller 📢
-    - verify  Seller Withdraw request and Sand mail to update's 📧
+  - Show All Orders of Seller's 🛍️
+  - Show All sellers and Delete ⛔
+  - Show All users and Delete 👨‍👩‍👦‍👦 ⛔
+  - All Products in DB. 👨🏻‍💻
+  - All Events of Seller 📢
+  - verify  Seller Withdraw request and Sand mail to update's 📧
+  - if Delete images it also deletes from the local devise
 
 ## 📹 Video Demo
 
