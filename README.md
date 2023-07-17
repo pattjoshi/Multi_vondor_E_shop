@@ -1,6 +1,6 @@
 # MERN Marketplace
 
-The MERN Marketplace application will allow users to become sellers, who can manage  shops, and add the products they want to sell in each shop. Admin can control functionality of Seller Users who visit MERN Marketplace will be able to search for and browse products they want to buy, and add products to their shopping cart to place an order:
+The MERN Marketplace application will allow users to become sellers, who can manage  shops, and add the products they want to sell in each shop. Admin can control functionality of Seller Users who visit MERN Marketplace will be able to search for and browse products they want to buy, and add products to their shopping cart to place an order. we have 3 Order Method.
 
 ## 🖥️ Tech Stack
 **Frontend:**
@@ -23,22 +23,24 @@ The MERN Marketplace application will allow users to become sellers, who can man
 
 ![socketio](https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white)
 
-- **Show Error:** [Toastify]()           <br/>
+**package manager**
 
-- **Data Fetch from Backent:** [axios]()   <br/>
+![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white)
 
-- **Icons:** [react-icons]()   <br/>
-
-- **Payment stripe:** [Strip]()   <br/>
-
-- **Payment Paypal:** [Strip]()   <br/>
-- **Store Date in Cookes:** [js-cookie]()   <br/>
-- **Sand maill to User,seller,Admin:** [nodemailer]()   <br/>
-- **Store Date in Cookes:** [js-cookie]()   <br/>
+- **Show Error:** [Toastify](https://www.npmjs.com/package/react-toastify)           <br/>
+- **Data Fetch from Backent:** [axios](https://www.npmjs.com/package/axios)   <br/>
+- **Icons:** [react-icons](https://react-icons.github.io/react-icons/)   <br/>
+- **Payment stripe:** [Strip](https://dashboard.stripe.com/login?redirect=%2Ftest%2Fpayments)   <br/>
+- **Payment Paypal:** [Strip](https://www.paypal.com/in/home)   <br/>
+- **Store Date in Cookes:** [js-cookie](https://www.npmjs.com/package/js-cookie)   <br/>
+- **Sand maill to User,seller,Admin:** [nodemailer](https://www.npmjs.com/package/nodemailer)   <br/>
 - **Store Img in Local Dev:**  [multer](https://www.npmjs.com/package/multer)
 
 ## 🚀 Features
 
+
+
+## 📹 Video Demo
 
 ## Sneak Peek of Home Page 🙈 :
 ![home](https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/14dfa843-e495-4fd7-bffe-b10b7a65cfc9)
@@ -150,63 +152,39 @@ The MERN Marketplace application will allow users to become sellers, who can man
 
 |         Mobile View          |         Desktop View          |
 | :--------------------------: | :---------------------------: |
-| <img width="261" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/079619ad-a93e-4dbc-8977-f3d943a050fb"> | <img width="955" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/a64bdb4c-cd4d-488c-9823-2511f51baa6c"> |
-| <img width="266" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/dc310253-d26b-47d1-b192-c637dd7b8b4d"> | <img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/8ad3acfd-6f3b-4f8f-bfb4-913adf22adf1"> |
-| <img width="266" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/300d994b-196b-4f4d-9195-7990d6ce698e"> | <img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/5d05cdc5-7935-4f92-a629-4c33ea61f340"> |
+| <img width="148" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/7b79abf4-a403-40ac-85d4-b487642746ae"> | <img width="955" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/a64bdb4c-cd4d-488c-9823-2511f51baa6c"> |
+| <img width="148" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/ffcf4801-aaf6-481f-aea8-cfc09368d688"> | <img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/8ad3acfd-6f3b-4f8f-bfb4-913adf22adf1"> |
+| <img width="146" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/52a46af4-d48c-493f-9b8f-7c5ebaffd230"> | <img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/5d05cdc5-7935-4f92-a629-4c33ea61f340"> |
 
-
-
+# Admin Dashbard 👤
+ <img width="960" alt="adminDs" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/df7f3d6c-d429-48a0-b9bc-1673c7532faf">
 <table>
   <tr>
-    <td></td>
-    <td></td>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/544cc86c-64e9-4cf2-b528-b422b4210001"></td>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/2d03dcc8-96f0-4235-b61d-2b1a752d4a93"></td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/e935093c-18be-42b7-9f24-374a655ee71d"></td>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/7b2df4a5-54c2-472b-87e6-62815d7a247d"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/f88da15d-c5e5-4a1d-bd76-ad32aaf6e626"></td>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/9a442db3-1296-48a7-977c-c50bc30bf5aa"></td>
+  </tr>
+  <tr>
+    <td><img width="960" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/afeb4548-7ef0-441e-b418-9335e54c0a05"></td>
   </tr>
 </table>
 
+-----
 
-
-<table>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+## Project description 📝
 
 
 
-
-
-<table>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-
-
-<table>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+## How to run 🏃
 
 
 
