@@ -50,7 +50,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
 - Home Page 🏠
   - View all product uploads by seller 📃
   - filter with the category 📊
-  - Best-selling product 💎
+  - Best-selling product (Sort by Sold_out data) 💎
   - All Product 📦
   - All Event's 🎊
   - FAQ 🙋
@@ -64,7 +64,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
 - Add to cart 🛒
   - Check out for payment 💳
     - we have 3 payment systems **Pay-pal**,**Strip**,**Cash of Delivery (COD)**
-  - Apply Coupon Code for Discount 👉💥
+- Apply Coupon Code for Discount 👉💥
 - Product Explore Page 🔍
   - View Product from another seller 🌍
   - View reviews from other users ⭐
@@ -80,7 +80,7 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - Add to wish list ❤️
   - Add to Cart  🛒
 - User Profile Page 👤
-  - Edit your profile details - profile photo, name, email,phone number, and website link ✏️
+  - Edit your profile details - profile photo, name, email,phone number ✏️
   - change Password 🔐
   - View All Order 👨🏾‍💻.
   - After Delivery of the product user can Refund the product. 🔙
@@ -96,6 +96,68 @@ The MERN Marketplace application will allow users to become sellers, who can man
   - Time of sand Message ⏰
 - Popular Events 💥
   - Show Recent Events
+- Responsive 📱
+  - All screens are responsive
+- Alerts 🚨
+  - Alerts in the app to notify users about success/failure operations
+- Seller Authentication Pages 🚪
+  - Seller Signup 📝
+    - shop name,Phone Number,Email address,Address,Zip Code,Password ✍
+    - upload a Profile image 📷
+    - email verification ✅
+  -  Seller Login 🔐
+- Seller Deshoard 👨🏻‍🔧
+  - Overview of a Product and Latest Orders 🖇️
+  - Account Balance (with 10% service charge) 💰
+- All Orders ⚖
+   - Seller Update Product Delivery status 📆
+  - Create Products  ✔️
+     - name*
+     - Description *
+     - Category *  like :- Computer and Laptops,Costetics and body care,Accesories,Cloths,Shoes,Gifts,Pet Care,Mobile and Tablets,Music and Gaming,Other 🧩
+  - All product 💻
+     - Seller can delete Product ❌
+    - View all Product 📦
+ - Create a Event  💥🎉
+    - name* 📇
+   - Description *
+   - Category *  like :- Computer and Laptops,Costetics and body care,Accesories,Cloths,Shoes,Gifts,Pet Care,Mobile and Tablets,Music and Gaming,Other
+   - Tags
+   - Original Price
+   - Price (With Discount) *
+   - Product Stock *
+   - Event Start Date * ✅
+   - Event End Date * (Default 3 days) ⛔
+   - Upload multiple Images * 📷
+- All Event 🎉
+  - Show Event 💥
+  - Delete Event  ⛔
+- Withdraw Money 📥
+  - Add Bank Details 🏛️
+  - Not withdraw highest amount of Balance 💱
+  - Sand mail to sell with amount 📩
+  - Delete Bank Details 🪧
+- Shop Inbox 📞
+    - All Messages 📬
+    - Sand Image to user 🖼️
+    - Show Activ function 🟢
+- Discount Codes 🎟️
+  - Create coupon code 🖱
+  - Delete coupon code 🛑
+  - applay all Product of shop  🤩
+  - Can applay specific product 1️⃣☝️
+- Refunds 🔙
+  - Seller can update Satus of Product 🔄
+- Settings ⚛
+  - update Images,Shop Address,Shop Phone Number,Shop Zip Code ⛓
+  - Add Shop description 📖
+- Shop Desboard 🎰
+   - Shop Products 🌃
+   - Running Events 🎪
+   - Shop Reviews ⭐
+   - Log out  ↪️
+
+
 
 
 
