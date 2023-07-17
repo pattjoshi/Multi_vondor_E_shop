@@ -1,6 +1,10 @@
-# MERN Marketplace
+<div align="center">
+      <img width="226" alt="image" src="https://github.com/pattjoshi/Multi_vondor_E_shop/assets/78966839/51c0517e-e5e6-4a65-a520-9e5a52095fb9">
+
+## 🌟 MERN Marketplace 🌟
 
 The MERN Marketplace application will allow users to become sellers, who can manage  shops, and add the products they want to sell in each shop. Admin can control functionality of Seller Users who visit MERN Marketplace will be able to search for and browse products they want to buy, and add products to their shopping cart to place an order. we have 3 Order Method.
+</div>
 
 ## 🖥️ Tech Stack
 **Frontend:**
@@ -37,6 +41,81 @@ The MERN Marketplace application will allow users to become sellers, who can man
 - **Store Img in Local Dev:**  [multer](https://www.npmjs.com/package/multer)
 
 ## 🚀 Features
+
+- User Authentication Pages 🚪
+  - User Signup 📝
+    - email verification
+    - upload a Profile image 
+  - User Login 🔐
+- Home Page 🏠
+  - View all product uploads by seller 📃
+  - filter with the category 📊
+  - Best-selling product 💎
+  - All Product 📦
+  - All Event's 🎊
+  - FAQ 🙋
+- Filters for Sorting Posts 🗂️
+  - Sort posts by Clothes, Shows, gifts, etc..
+- User Search Bar 🔍
+  - Search for product 🔎
+  - Click on a user to go to the Product details page 👤
+- wish list ❤️
+  - store in cart 👀
+- Add to cart 🛒
+  - Check out for payment 💳
+    - we have 3 payment systems **Pay-pal**,**Strip**,**Cash of Delivery (COD)**
+  - Apply Coupon Code for Discount 👉💥
+- Product Explore Page 🔍
+  - View Product from another seller 🌍
+  - View reviews from other users ⭐
+  - The eye button shows Product Details 👁
+  - Original Price and discount price 💵
+  - HowMeney Buy this product  🤝
+  - Inc and Dec product  📉 +
+  - Show Description of product 📃
+  - View Seller Profile 👥
+  - Chating with Seller 💬
+  - Show Seller Information 📋
+  - Show Related Products 🔗
+  - Add to wish list ❤️
+  - Add to Cart  🛒
+- User Profile Page 👤
+  - Edit your profile details - profile photo, name, email,phone number, and website link ✏️
+  - change Password 🔐
+  - View All Order 👨🏾‍💻.
+  - After Delivery of the product user can Refund the product. 🔙
+  - User inbox Chat with the seller. ✉️
+  - Use can Track Orders. 🛤️
+  - Store 3 Address Details. Like Default, Home, office. 📫
+  - **Only Admin show Admin Dashboard** 👑
+  - Logout 🔚
+  - Create a Review After Delivery Product 🚛
+- Message ✉️
+  - Sand Image 🖼️
+  - Show active or not 🟢
+  - Time of sand Message ⏰
+- Popular Events 💥
+  - Show Recent Events
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 
 
 
@@ -275,7 +354,6 @@ STRIPE_SECRET_KEY =
 - `cd socket`
 - `yarn install`
 - create a `.env` file
-- 
 ```
 PORT = 4000
 ```
