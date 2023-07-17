@@ -184,8 +184,6 @@ The MERN Marketplace application will allow users to become sellers, who can man
 
 
 
-## How to run 🏃
-
 #### _**IMPORTANT NOTE**_ - 
 This project does not have a mongoDB connection setup. Set up the connection based on the environments below.
 - local development: create a config folder (make sure to name it .env) in the config folder, which exports your db.uri connection.
@@ -240,26 +238,57 @@ This project does not have a mongoDB connection setup. Set up the connection bas
 
 ---
 
+💻 How to run the app locally! 🏃
+
+### STAP-1
+`git clone https://github.com/pattjoshi/Multi_vondor_E_shop.git`
+
+### STAP-2
+- `cd frontend`
+- `yarn install`
+- `yarn start`
+
+### STAP-3
+- `cd backend`
+- `yarn install`
+- create folder `uploads`
+- create `confilg` folder and a `.env` file
+- use your Cradincial in.env file
+
+```
+PORT = 8000
+DB_URL = ""
+JWT_SECRET_KEY = ""
+JWT_EXPIRES = 7d
+ACTIVATION_SECRET = 
+SMPT_HOST = 'smtp.gmail.com'
+SMPT_PORT = 465
+SMPT_PASSWORD = 
+SMPT_MAIL =
+STRIPE_API_KEY = 
+STRIPE_SECRET_KEY = 
+```
+- `yarn start`
+
+### STAP-4
+
+- `cd socket`
+- `yarn install`
+- create a `.env` file
+- 
+```
+PORT = 4000
+```
+- `yarn start`
 
 
+## YouTub :- [I Learn from this ](https://www.youtube.com/watch?v=XxnUSZOgMLY&list=PLyah27R0n8V4Kcao94Qlt-xJ0bHxZfBjk "click to open")
+
+🙏 If you find this repo helpful then don't forget to give a star ❇️ to this repository. :)
+
+<p align="center"><a href="https://github.com/nastyox/Rando.js#nastyox"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
+<br/>
+<p align="center"><a href="https://github.com/pattjoshi/Multi_vondor_E_shop#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@copyright by Om Pattjoshi 2023
