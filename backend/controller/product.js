@@ -67,6 +67,14 @@ router.delete(
 
       const productData = await Product.findById(productId);
 
+      if (!productData) {
+        return next(new ErrorHandler("Product not found with this id!", 404));
+      }
+
+      if (productData.shopId !== req.seller._id.toString()) {
+        return next(new ErrorHandler("Unauthorized action!", 403));
+      }
+
       productData.images.forEach((imageUrl) => {
         const filename = imageUrl;
         const filePath = `uploads/${filename}`;
